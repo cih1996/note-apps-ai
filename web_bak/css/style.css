@@ -1,0 +1,122 @@
+/* Vector Notes - 自定义样式 */
+
+.chat-container {
+    height: calc(100vh - 180px);
+}
+
+@media (max-width: 768px) {
+    .chat-container {
+        height: calc(100vh - 130px);
+    }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.message-bubble {
+    max-width: 85%;
+}
+
+@media (max-width: 768px) {
+    .message-bubble {
+        max-width: 92%;
+        padding: 0.75rem !important;
+    }
+}
+
+pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+/* 模态框样式 */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 50;
+}
+
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 0;
+    }
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 56rem; /* 增大编辑模态框 */
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        border-radius: 0;
+        max-height: 100vh;
+        height: 100%;
+    }
+}
+
+.modal-content-view {
+    max-width: 48rem; /* 查看模态框稍小 */
+}
+
+/* 动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content {
+    animation: fadeIn 0.2s ease-out;
+}
+
+/* 灵感模块主题 */
+.inspiration-theme {
+    background: linear-gradient(to bottom, #ffffff, #fdfbff);
+}
+
+.inspiration-theme .chat-container {
+    scrollbar-color: #d8b4fe transparent;
+    scrollbar-width: thin;
+}
+
+.font-serif {
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+/* 自适应高度调整 */
+.inspiration-theme .chat-container {
+    height: calc(100vh - 200px);
+}
+
+@media (max-width: 768px) {
+    .inspiration-theme .chat-container {
+        height: calc(100vh - 150px);
+    }
+}
+

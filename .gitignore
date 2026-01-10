@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# 虚拟环境
+venv/
+env/
+ENV/
+
+# 数据库文件
+knowledge_db/
+backup.db
+*.db
+*.sqlite
+*.sqlite3
+
+# 日志文件
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 配置文件
+.env
+.env.local
+
+# 模型缓存
+.cache/
+models/
+*.bin
+*.safetensors
+
+# 备份文件
+backup_*.json
+backup_*.db
