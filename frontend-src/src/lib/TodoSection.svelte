@@ -111,7 +111,7 @@
     if (!input.trim() || parsing) return;
     parsing = true;
     try {
-      const res = await axios.post('/api/todo/parse', { content: input });
+      const res = await axios.post('/api/todo/parse', { content: input }, { timeout: 15000 });
       reviewingItems = res.data.map(item => ({
         ...item,
         id: Math.random().toString(36).substr(2, 9),
@@ -122,7 +122,16 @@
       }));
       showAddModal = false; // Close add modal after successful parse
     } catch (err) {
-      alert('AI解析失败: ' + err.message);
+      console.warn('AI解析失败或超时，切换为普通模式:', err);
+      // Fallback: Use default method to add todo if AI fails
+      reviewingItems = [{
+        id: Math.random().toString(36).substr(2, 9),
+        task: input,
+        priority: '近期',
+        subtasks: [],
+        reminder_at: null
+      }];
+      showAddModal = false;
     } finally {
       parsing = false;
     }
